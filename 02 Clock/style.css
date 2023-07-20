@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-image: linear-gradient(
+      45deg,
+      rgba(59, 59, 59, 0.35),
+      rgba(60, 60, 60, 0.35)
+    ),
+    url(https://images.unsplash.com/photo-1576502200916-3808e07386a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2065&q=80);
+  background-size: cover;
+  font-family: "helvetica neue";
+  text-align: center;
+  font-size: 1rem;
+}
+
+body {
+  font-size: 2rem;
+  display: flex;
+  flex: 1;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.clock {
+  height: 30rem;
+  width: 30rem;
+  background: #2a2a2a63;
+  border: 1rem solid #0aabcf;
+  border-radius: 50%;
+  margin: 50px auto;
+  position: relative;
+  padding: 2rem;
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1), inset 0 0 0 3px #efefef,
+    0 0 10px rgb(0, 40, 151), 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.clock-face {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform: translate(-3px);
+}
+
+.hand {
+  width: 50%;
+  height: 6px;
+  background: black;
+  border-start-start-radius: 70%;
+  position: absolute;
+  top: 50%;
+  transform-origin: 100%;
+  transform: rotate(90deg);
+  transition: all 0.05s;
+  transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+}
+
+.hour-hand {
+  width: 35%;
+  position: absolute;
+  left: 15%;
+}
+
+footer {
+  display: block;
+  position: absolute;
+  font-weight: 600;
+  font-style: oblique;
+  bottom: 1%;
+  right: -1%;
+  margin: 0 3rem 0 0;
+}
