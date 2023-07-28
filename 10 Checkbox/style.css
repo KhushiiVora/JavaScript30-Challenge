@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: sans-serif;
+  background: #66babd;
+}
+
+.inbox {
+  max-width: 25rem;
+  margin: 5rem auto;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.item:last-child {
+  border-bottom: 0;
+}
+
+input[type="checkbox"] {
+  margin: 1rem;
+}
+
+p {
+  padding: 1rem;
+  transition: background 0.2s;
+  flex: 1;
+  font-family: "helvetica neue";
+  font-size: 1rem;
+  font-weight: 200;
+  border-left: 1px solid #d1ffff;
+}
+
+footer {
+  position: absolute;
+  right: 1%;
+  bottom: 1%;
+  font-style: oblique;
+  font-weight: 300;
+  color: #414141;
+}
