@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Speech Recognition</title>
+    <link rel="icon" href="https://fav.farm/🗣️" />
+  </head>
+  <body>
+    <div class="words" contenteditable></div>
+    <footer>By Khushi Vora</footer>
+    <script>
+      window.SpeechRecognition =
+        window.speechRecognition || window.webkitSpeechRecognition;
+
+      const recognition = new SpeechRecognition();
+      recognition.interimResults = true;
+
+      let p = document.createElement("p");
+      const words = document.querySelector(".words");
+      words.appendChild(p);
+
+      recognition.addEventListener("result", (e) => {
+        const transcript = Array.from(e.results)
+          .map((result) => result[0])
+          .map((result) => result.transcript)
+          .join("");
+
+        p.textContent = transcript;
+        if (e.results[0].isFinal) {
+          p = document.createElement("p");
+          words.appendChild(p);
+        }
+      });
+
+      recognition.addEventListener("end", recognition.start);
+
+      recognition.start();
+    </script>
+
+    <style>
+      html {
+        font-size: 1rem;
+      }
+
+      body {
+        background: #66babd;
+        font-family: "helvetica neue";
+        font-weight: 200;
+        font-size: 2rem;
+      }
+
+      .words {
+        max-width: 45rem;
+        margin: 3rem auto;
+        background: #c5fdf2;
+        border-radius: 5px;
+        box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.1);
+        padding: 1rem 2rem 1rem 5rem;
+        background-size: 100% 3rem;
+        position: relative;
+        line-height: 3rem;
+      }
+      p {
+        margin: 0 0 3rem;
+      }
+
+      .words:before {
+        content: "";
+        position: absolute;
+        width: 4px;
+        top: 0;
+        left: 30px;
+        bottom: 0;
+        border: 1px solid;
+        border-color: transparent #b3b2b2;
+      }
+
+      footer {
+        font-size: 1.5rem;
+        font-weight: 600;
+        font-style: oblique;
+        color: #444444;
+        position: absolute;
+        right: 1%;
+        top: 1%;
+      }
+
+      @media (max-width: 500px) {
+        body {
+          font-size: 1.5rem;
+        }
+        .words {
+          margin: 3rem 1rem;
+          padding: 1rem 2rem 1rem 3rem;
+          line-height: 2rem;
+        }
+        p {
+          margin: 0 0 1rem;
+        }
+
+        footer {
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </body>
+</html>
